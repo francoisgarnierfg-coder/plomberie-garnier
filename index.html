@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Artisan plombier en région lyonnaise et Rhône-Alpes. Interventions d'urgence, installation, dépannage. Appelez le 06 69 24 76 02." />
+  <meta name="keywords" content="plombier Lyon, plombier Rhône-Alpes, dépannage plomberie, urgence plombier, installation sanitaire, chauffage Lyon" />
+  <title>Plomberie Garnier – Artisan Plombier Lyon & Rhône-Alpes</title>
+
+  <style>
+    /* ── Reset & variables ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:    #1a4e8f;
+      --blue-dk: #0d3362;
+      --accent:  #e8a020;
+      --light:   #f4f7fb;
+      --gray:    #6b7280;
+      --dark:    #1f2937;
+      --white:   #ffffff;
+      --radius:  10px;
+      --shadow:  0 4px 24px rgba(0,0,0,.10);
+      --transition: .25s ease;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    ul { list-style: none; }
+
+    /* ── Typography ── */
+    h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.15; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 700; margin-bottom: 1rem; }
+    h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: .5rem; }
+    p  { margin-bottom: .75rem; color: var(--gray); }
+    .section-label {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+    section { padding: 5rem 0; }
+    .section-alt { background: var(--light); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .8rem 1.6rem;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: .95rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary:hover { background: #c8870c; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--blue); }
+
+    /* ── Top bar ── */
+    #topbar {
+      background: var(--blue-dk);
+      color: #d1e2f5;
+      font-size: .82rem;
+      padding: .5rem 0;
+    }
+    #topbar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; }
+    #topbar a { color: var(--accent); font-weight: 700; }
+
+    /* ── Navbar ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { display: flex; align-items: center; gap: .75rem; }
+    .logo-icon { width: 42px; height: 42px; background: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .logo-icon svg { fill: var(--white); }
+    .logo-text { font-size: 1.15rem; font-weight: 800; color: var(--blue); line-height: 1.1; }
+    .logo-text span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; font-weight: 600; font-size: .9rem; }
+    .nav-links a { color: var(--dark); transition: color var(--transition); }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta { display: flex; align-items: center; gap: .5rem; background: var(--blue); color: var(--white); padding: .55rem 1.1rem; border-radius: var(--radius); font-weight: 700; font-size: .9rem; transition: var(--transition); }
+    .nav-cta:hover { background: var(--blue-dk); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: .4rem; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--dark); border-radius: 2px; transition: var(--transition); }
+
+    /* ── Hero ── */
+    #hero {
+      background: linear-gradient(135deg, var(--blue-dk) 0%, var(--blue) 60%, #2563b0 100%);
+      color: var(--white);
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    #hero .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: .4rem; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); border-radius: 999px; padding: .35rem .9rem; font-size: .8rem; font-weight: 600; margin-bottom: 1.25rem; }
+    .hero-badge::before { content: '🔵'; font-size: .7rem; }
+    #hero h1 { color: var(--white); margin-bottom: 1rem; }
+    #hero h1 span { color: var(--accent); }
+    #hero p { color: rgba(255,255,255,.82); font-size: 1.05rem; margin-bottom: 1.5rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-card {
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .hero-card-title { font-size: 1rem; font-weight: 700; color: var(--white); text-align: center; margin-bottom: .25rem; }
+    .hero-stat { text-align: center; }
+    .hero-stat .number { font-size: 2rem; font-weight: 800; color: var(--accent); }
+    .hero-stat .label { font-size: .8rem; color: rgba(255,255,255,.7); }
+    .hero-divider { height: 1px; background: rgba(255,255,255,.15); }
+    .hero-phone { text-align: center; }
+    .hero-phone .tel { font-size: 1.5rem; font-weight: 800; color: var(--white); letter-spacing: .03em; }
+    .hero-phone .tel-label { font-size: .75rem; color: rgba(255,255,255,.6); }
+
+    /* ── Trust bar ── */
+    #trust {
+      background: var(--blue);
+      color: var(--white);
+      padding: 1.5rem 0;
+    }
+    #trust .container { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 1rem; }
+    .trust-item { display: flex; align-items: center; gap: .6rem; font-size: .9rem; font-weight: 600; }
+    .trust-item svg { fill: var(--accent); flex-shrink: 0; }
+
+    /* ── Services ── */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .service-card {
+      background: var(--white);
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--blue);
+      transform: scaleY(0);
+      transition: var(--transition);
+      transform-origin: bottom;
+    }
+    .service-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .service-card:hover::before { transform: scaleY(1); }
+    .service-icon { font-size: 2.2rem; margin-bottom: .75rem; }
+    .service-card h3 { color: var(--blue); }
+    .service-card p { font-size: .9rem; }
+
+    /* ── Urgence ── */
+    #urgence {
+      background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 4rem 0;
+    }
+    #urgence h2 { color: var(--white); }
+    #urgence p  { color: rgba(255,255,255,.85); max-width: 580px; margin: 0 auto 1.5rem; }
+    .urgence-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      background: var(--white);
+      color: #dc2626;
+      font-size: 1.6rem;
+      font-weight: 800;
+      padding: .8rem 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+      margin-bottom: 1rem;
+      transition: var(--transition);
+    }
+    .urgence-phone:hover { transform: scale(1.04); }
+    .urgence-note { font-size: .85rem; color: rgba(255,255,255,.65); }
+
+    /* ── Zone intervention ── */
+    .zone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; margin-top: 2rem; }
+    .zone-list { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1rem; }
+    .zone-tag {
+      background: var(--blue);
+      color: var(--white);
+      padding: .35rem .9rem;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .zone-tag.secondary { background: var(--light); color: var(--dark); border: 1px solid #d1d5db; }
+    .zone-info { background: var(--white); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); }
+    .zone-info ul { display: flex; flex-direction: column; gap: .6rem; margin-top: .75rem; }
+    .zone-info li { display: flex; align-items: flex-start; gap: .5rem; font-size: .9rem; }
+    .zone-info li::before { content: '✔'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    /* ── Pourquoi nous ── */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+    .why-card { text-align: center; padding: 2rem 1.5rem; }
+    .why-icon { font-size: 2.8rem; margin-bottom: 1rem; }
+    .why-card h3 { color: var(--blue); margin-bottom: .5rem; }
+    .why-card p { font-size: .88rem; }
+
+    /* ── Tarifs ── */
+    .tarifs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .tarif-item {
+      background: var(--white);
+      border: 1px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tarif-label { font-weight: 600; font-size: .9rem; }
+    .tarif-price { font-weight: 800; color: var(--blue); font-size: 1rem; white-space: nowrap; }
+    .tarif-note { font-size: .8rem; color: var(--gray); margin-top: 1rem; font-style: italic; }
+
+    /* ── Contact ── */
+    #contact .container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .contact-item-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: var(--blue);
+      color: var(--white);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem;
+    }
+    .contact-item-body strong { display: block; font-size: .85rem; color: var(--gray); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: .2rem; }
+    .contact-item-body a { color: var(--blue); font-weight: 700; font-size: 1.05rem; }
+    .contact-form { background: var(--light); border-radius: var(--radius); padding: 2rem; }
+    .contact-form h3 { color: var(--blue); margin-bottom: 1.25rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: .85rem; font-weight: 600; color: var(--dark); margin-bottom: .3rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: .7rem 1rem;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      font-size: .9rem;
+      font-family: inherit;
+      transition: border-color var(--transition);
+      background: var(--white);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { outline: none; border-color: var(--blue); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    #form-message { margin-top: .75rem; font-size: .88rem; font-weight: 600; display: none; }
+    #form-message.success { color: #059669; }
+    #form-message.error   { color: #dc2626; }
+
+    /* ── Mentions légales ── */
+    #mentions { background: var(--light); }
+    .mentions-content {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.05);
+      font-size: .88rem;
+      line-height: 1.8;
+      margin-top: 2rem;
+    }
+    .mentions-content h3 { color: var(--blue); font-size: 1rem; margin: 1.5rem 0 .4rem; border-bottom: 1px solid #e5e7eb; padding-bottom: .3rem; }
+    .mentions-content h3:first-child { margin-top: 0; }
+    .mentions-content p { color: var(--dark); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.6);
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+    .footer-logo { color: var(--white); font-size: 1.1rem; font-weight: 800; margin-bottom: .75rem; }
+    .footer-logo span { color: var(--accent); }
+    .footer-col h4 { color: var(--white); font-size: .9rem; font-weight: 700; margin-bottom: 1rem; }
+    .footer-col ul { display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col ul li a { font-size: .85rem; transition: color var(--transition); }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem; font-size: .8rem; }
+    .footer-bottom a { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      #hero .container { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .zone-grid { grid-template-columns: 1fr; }
+      #contact .container { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); padding: 1rem 1.25rem 1.5rem; border-top: 1px solid #e5e7eb; box-shadow: 0 8px 24px rgba(0,0,0,.08); z-index: 99; }
+      .hamburger { display: flex; }
+      #hero { padding: 3rem 0; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      #trust .container { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── Scroll to top button ── */
+    #scrollTop {
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
+      width: 44px; height: 44px;
+      background: var(--blue);
+      color: var(--white);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center; justify-content: center;
+      box-shadow: var(--shadow);
+      font-size: 1.2rem;
+      z-index: 200;
+      transition: var(--transition);
+    }
+    #scrollTop:hover { background: var(--blue-dk); }
+    #scrollTop.visible { display: flex; }
+  </style>
+</head>
+<body>
+
+<!-- ── Top bar ── -->
+<div id="topbar">
+  <div class="container">
+    <span>📍 Artisan plombier – Lyon & région Rhône-Alpes</span>
+    <span>Urgences 7j/7 : <a href="tel:0669247602">06 69 24 76 02</a></span>
+  </div>
+</div>
+
+<!-- ── Navigation ── -->
+<nav id="navbar">
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+      </div>
+      <div class="logo-text">Plomberie<br/><span>Garnier</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Prestations</a></li>
+      <li><a href="#zones">Zone d'intervention</a></li>
+      <li><a href="#pourquoi">Pourquoi nous ?</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#mentions">Mentions légales</a></li>
+    </ul>
+    <a href="tel:0669247602" class="nav-cta">📞 06 69 24 76 02</a>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Disponible 7j/7 — Rhône-Alpes</div>
+      <h1>Votre artisan<br/><span>plombier</span> à Lyon<br/>& en Rhône-Alpes</h1>
+      <p>Dépannage d'urgence, installation, rénovation sanitaire et chauffage. Intervenant rapide sur Lyon et toute la région Rhône-Alpes depuis plus de 15 ans.</p>
+      <div class="hero-actions">
+        <a href="tel:0669247602" class="btn btn-primary">📞 Appeler maintenant</a>
+        <a href="#contact" class="btn btn-outline">Demande de devis</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Plomberie Garnier</div>
+      <div style="display:flex; justify-content:space-around;">
+        <div class="hero-stat"><div class="number">15+</div><div class="label">Ans d'expérience</div></div>
+        <div class="hero-stat"><div class="number">24h</div><div class="label">Urgences / 7j</div></div>
+        <div class="hero-stat"><div class="number">500+</div><div class="label">Clients satisfaits</div></div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-phone">
+        <div class="tel-label">Numéro d'urgence</div>
+        <a href="tel:0669247602" class="tel">06 69 24 76 02</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Trust bar ── -->
+<div id="trust">
+  <div class="container">
+    <div class="trust-item">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+      Artisan certifié RGE
+    </div>
+    <div class="trust-item">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      Intervention en 2h
+    </div>
+    <div class="trust-item">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+      Devis gratuit
+    </div>
+    <div class="trust-item">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Garantie 1 an pièces & main-d'œuvre
+    </div>
+    <div class="trust-item">
+      <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Lyon & Rhône-Alpes
+    </div>
+  </div>
+</div>
+
+<!-- ── Services ── -->
+<section id="services">
+  <div class="container">
+    <div class="section-label">Nos prestations</div>
+    <h2>Toutes vos interventions plomberie</h2>
+    <p>De l'urgence à la rénovation complète, nous intervenons sur l'ensemble des installations sanitaires et thermiques de votre logement ou local professionnel.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">🚿</div>
+        <h3>Installation sanitaire</h3>
+        <p>Pose de douche, baignoire, lavabo, WC, évier de cuisine. Installation complète avec raccordements eau et évacuation aux normes.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔧</div>
+        <h3>Dépannage & réparation</h3>
+        <p>Fuite d'eau, robinet qui goutte, joint défectueux, pression insuffisante… Diagnostic rapide et réparation durable.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌊</div>
+        <h3>Débouchage canalisations</h3>
+        <p>WC bouché, évier ou douche bouchés, colonne d'évacuation obstruée. Intervention par furet ou haute pression.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Chaudière & chauffage</h3>
+        <p>Installation, entretien et dépannage de chaudières à gaz ou fioul. Remplacement de pièces, mise en conformité.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">💧</div>
+        <h3>Chauffe-eau & ballon</h3>
+        <p>Remplacement de cumulus, installation de chauffe-eau thermodynamique, détartrage et entretien annuel.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Rénovation salle de bain</h3>
+        <p>Refonte complète de votre salle de bain : démolition, plomberie, carrelage, pose d'équipements neufs. Clé en main.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Plomberie neuf & construction</h3>
+        <p>Tirage de canalisations, installation complète pour maisons neuves et chantiers de rénovation lourde.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌡️</div>
+        <h3>Plancher chauffant</h3>
+        <p>Installation et dépannage de plancher chauffant hydraulique. Réglage des zones, purge et équilibrage du circuit.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Recherche de fuite</h3>
+        <p>Détection de fuites cachées (mur, dalle, dalle) par thermographie ou traceur de gaz. Sans destruction inutile.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Urgence ── -->
+<section id="urgence">
+  <div class="container">
+    <div class="section-label" style="background:rgba(255,255,255,.25)">Urgence 24h/24</div>
+    <h2>Fuite, dégât des eaux, canalisation bouchée ?</h2>
+    <p>N'attendez pas. Chaque minute compte lors d'une fuite d'eau. Nous intervenons en urgence 7j/7 sur Lyon et la région lyonnaise.</p>
+    <a href="tel:0669247602" class="urgence-phone">📞 06 69 24 76 02</a>
+    <div class="urgence-note">Disponible 7 jours sur 7 — Numéro direct, pas de standard</div>
+  </div>
+</section>
+
+<!-- ── Zone d'intervention ── -->
+<section id="zones" class="section-alt">
+  <div class="container">
+    <div class="section-label">Zone d'intervention</div>
+    <h2>Lyon & toute la région Rhône-Alpes</h2>
+    <div class="zone-grid">
+      <div>
+        <p>Basé à Lyon, nous intervenons dans un rayon de 50 km autour de la métropole lyonnaise, couvrant l'ensemble du département du Rhône et les zones limitrophes de l'Ain, de l'Isère et de la Loire.</p>
+        <h3 style="margin-top:1.5rem; color:var(--blue);">Villes principales</h3>
+        <div class="zone-list">
+          <span class="zone-tag">Lyon (1er – 9e)</span>
+          <span class="zone-tag">Villeurbanne</span>
+          <span class="zone-tag">Vénissieux</span>
+          <span class="zone-tag">Bron</span>
+          <span class="zone-tag">Décines</span>
+          <span class="zone-tag">Caluire</span>
+          <span class="zone-tag">Écully</span>
+          <span class="zone-tag">Tassin</span>
+          <span class="zone-tag">Oullins</span>
+          <span class="zone-tag">Saint-Fons</span>
+        </div>
+        <h3 style="margin-top:1.25rem; color:var(--blue);">Communes proches</h3>
+        <div class="zone-list">
+          <span class="zone-tag secondary">Bourgoin-Jallieu</span>
+          <span class="zone-tag secondary">Givors</span>
+          <span class="zone-tag secondary">Mions</span>
+          <span class="zone-tag secondary">Meyzieu</span>
+          <span class="zone-tag secondary">Rillieux-la-Pape</span>
+          <span class="zone-tag secondary">Vaulx-en-Velin</span>
+          <span class="zone-tag secondary">Corbas</span>
+          <span class="zone-tag secondary">Feyzin</span>
+        </div>
+      </div>
+      <div class="zone-info">
+        <h3 style="color:var(--blue);">Nos engagements</h3>
+        <ul>
+          <li>Intervention en moins de 2h pour les urgences</li>
+          <li>Déplacement gratuit pour tout devis (sous conditions)</li>
+          <li>Technicien qualifié et outillé sur site</li>
+          <li>Compte-rendu d'intervention écrit</li>
+          <li>Facturation transparente, sans surprise</li>
+          <li>Garantie légale sur les travaux réalisés</li>
+          <li>Traitement des dossiers assurance dégât des eaux</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pourquoi nous ── -->
+<section id="pourquoi">
+  <div class="container">
+    <div class="section-label">Pourquoi nous choisir</div>
+    <h2>L'artisan de confiance à Lyon</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🏅</div>
+        <h3>Artisan qualifié</h3>
+        <p>Diplômé, assuré en responsabilité civile professionnelle. Qualification RGE (Reconnu Garant de l'Environnement) pour les travaux d'économie d'énergie.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Réactivité</h3>
+        <p>Nous nous engageons à intervenir dans les 2 heures pour toute urgence plomberie, y compris le week-end et les jours fériés.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💬</div>
+        <h3>Transparence</h3>
+        <p>Devis détaillé avant tout travail. Pas de surcoût caché. Le prix annoncé est le prix facturé, matériaux et main-d'œuvre inclus.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔒</div>
+        <h3>Garantie</h3>
+        <p>Garantie 1 an sur toutes les pièces posées et la main-d'œuvre. En cas de problème, nous revenons sans frais supplémentaires.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Tarifs indicatifs ── -->
+<section id="tarifs" class="section-alt">
+  <div class="container">
+    <div class="section-label">Tarifs indicatifs</div>
+    <h2>Des prix clairs et honnêtes</h2>
+    <p>Voici nos tarifs indicatifs. Un devis gratuit et personnalisé vous sera remis avant tout démarrage de travaux.</p>
+    <div class="tarifs-grid">
+      <div class="tarif-item"><span class="tarif-label">Déplacement + diagnostic</span><span class="tarif-price">60 € TTC</span></div>
+      <div class="tarif-item"><span class="tarif-label">Remplacement robinet/joint</span><span class="tarif-price">dès 80 € TTC</span></div>
+      <div class="tarif-item"><span class="tarif-label">Débouchage canalisation</span><span class="tarif-price">dès 120 € TTC</span></div>
+      <div class="tarif-item"><span class="tarif-label">Remplacement chauffe-eau</span><span class="tarif-price">dès 450 € TTC</span></div>
+      <div class="tarif-item"><span class="tarif-label">Intervention d'urgence (nuit/WE)</span><span class="tarif-price">Majoration 50 %</span></div>
+      <div class="tarif-item"><span class="tarif-label">Devis travaux de rénovation</span><span class="tarif-price">Gratuit</span></div>
+    </div>
+    <p class="tarif-note">* Tarifs hors fournitures spécifiques. TVA à 10 % applicable pour les travaux dans les logements de plus de 2 ans. Les tarifs définitifs sont fixés après visite et devis écrit.</p>
+  </div>
+</section>
+
+<!-- ── Contact ── -->
+<section id="contact">
+  <div class="container">
+    <div style="grid-column: 1/-1; margin-bottom: .5rem;">
+      <div class="section-label">Nous contacter</div>
+      <h2>Contactez-nous</h2>
+    </div>
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div class="contact-item-body">
+          <strong>Téléphone</strong>
+          <a href="tel:0669247602">06 69 24 76 02</a>
+          <div style="font-size:.82rem; color:var(--gray);">Lun–Sam 8h–19h • Urgences 7j/7</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div class="contact-item-body">
+          <strong>Email</strong>
+          <a href="mailto:contact@plomberie-garnier.fr" style="color:var(--blue); font-weight:700;">contact@plomberie-garnier.fr</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div class="contact-item-body">
+          <strong>Adresse</strong>
+          <span style="font-weight:600;">14 rue du Moulin à Vent<br/>69003 Lyon</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🕐</div>
+        <div class="contact-item-body">
+          <strong>Horaires</strong>
+          <span style="font-weight:600;">Lundi – Vendredi : 8h – 19h<br/>Samedi : 9h – 17h<br/>Urgences : 7j/7, 24h/24</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <h3>Demande de devis gratuit</h3>
+      <form id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nom">Nom *</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+          </div>
+          <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tel">Téléphone *</label>
+          <input type="tel" id="tel" name="tel" placeholder="06 XX XX XX XX" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.fr" />
+        </div>
+        <div class="form-group">
+          <label for="ville">Ville / Code postal *</label>
+          <input type="text" id="ville" name="ville" placeholder="Lyon 69003" required />
+        </div>
+        <div class="form-group">
+          <label for="type">Type d'intervention *</label>
+          <select id="type" name="type" required>
+            <option value="">-- Choisissez --</option>
+            <option>Dépannage urgent</option>
+            <option>Installation sanitaire</option>
+            <option>Débouchage canalisation</option>
+            <option>Chaudière / Chauffage</option>
+            <option>Chauffe-eau</option>
+            <option>Rénovation salle de bain</option>
+            <option>Recherche de fuite</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Décrivez votre problème</label>
+          <textarea id="message" name="message" placeholder="Décrivez votre situation en quelques mots..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Envoyer ma demande</button>
+        <div id="form-message"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── Mentions légales ── -->
+<section id="mentions">
+  <div class="container">
+    <div class="section-label">Informations légales</div>
+    <h2>Mentions légales</h2>
+    <div class="mentions-content">
+      <h3>1. Éditeur du site</h3>
+      <p>Le présent site est édité par :<br/>
+      <strong>Plomberie Garnier</strong> – Entreprise individuelle<br/>
+      Siège social : 14 rue du Moulin à Vent, 69003 Lyon<br/>
+      SIRET : 123 456 789 00012 (numéro fictif à des fins d'illustration)<br/>
+      APE/NAF : 4322A – Travaux d'installation d'eau et de gaz<br/>
+      Téléphone : <a href="tel:0669247602">06 69 24 76 02</a><br/>
+      Email : <a href="mailto:contact@plomberie-garnier.fr">contact@plomberie-garnier.fr</a></p>
+
+      <h3>2. Responsable de la publication</h3>
+      <p>M. Garnier, artisan plombier – en qualité d'exploitant de l'entreprise individuelle Plomberie Garnier.</p>
+
+      <h3>3. Hébergement</h3>
+      <p>Ce site est hébergé par GitHub Pages – GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis.</p>
+
+      <h3>4. Assurance professionnelle</h3>
+      <p>Plomberie Garnier est titulaire d'une assurance en Responsabilité Civile Professionnelle et d'une assurance décennale conformément aux obligations légales applicables aux artisans du bâtiment.<br/>
+      Assureur : à préciser. Couverture géographique : France métropolitaine.</p>
+
+      <h3>5. Qualification & certifications</h3>
+      <p>Artisan inscrit au Registre National des Entreprises (RNE) de la Chambre des Métiers et de l'Artisanat du Rhône. Qualification RGE (Reconnu Garant de l'Environnement) permettant l'éligibilité aux aides fiscales (MaPrimeRénov', CEE).</p>
+
+      <h3>6. Propriété intellectuelle</h3>
+      <p>L'ensemble du contenu de ce site (textes, icônes, mise en page) est la propriété de Plomberie Garnier. Toute reproduction, même partielle, sans autorisation écrite préalable est interdite.</p>
+
+      <h3>7. Données personnelles & RGPD</h3>
+      <p>Les données collectées via le formulaire de contact (nom, téléphone, email) sont utilisées exclusivement pour répondre à votre demande et ne sont jamais cédées à des tiers. Conformément au Règlement Général sur la Protection des Données (RGPD – UE 2016/679), vous disposez d'un droit d'accès, de rectification et de suppression de vos données en écrivant à : <a href="mailto:contact@plomberie-garnier.fr">contact@plomberie-garnier.fr</a>.</p>
+
+      <h3>8. Cookies</h3>
+      <p>Ce site n'utilise pas de cookies de traçage ou publicitaires. Aucune donnée de navigation n'est collectée à des fins commerciales.</p>
+
+      <h3>9. Limitation de responsabilité</h3>
+      <p>Les informations tarifaires présentées sur ce site sont données à titre indicatif et ne constituent pas un devis contractuel. Plomberie Garnier ne saurait être tenu responsable d'inexactitudes ou d'omissions.</p>
+
+      <h3>10. Droit applicable</h3>
+      <p>Le présent site est soumis au droit français. Tout litige relatif à son utilisation relève de la compétence exclusive des tribunaux du ressort de la Cour d'appel de Lyon.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Plomberie <span>Garnier</span></div>
+        <p style="font-size:.85rem; margin-bottom:.75rem;">Artisan plombier qualifié en région lyonnaise. Dépannage, installation et rénovation sanitaire depuis plus de 15 ans.</p>
+        <p style="font-size:.85rem;">14 rue du Moulin à Vent<br/>69003 Lyon</p>
+      </div>
+      <div class="footer-col">
+        <h4>Prestations</h4>
+        <ul>
+          <li><a href="#services">Installation sanitaire</a></li>
+          <li><a href="#services">Dépannage urgent</a></li>
+          <li><a href="#services">Débouchage</a></li>
+          <li><a href="#services">Chaudière & chauffage</a></li>
+          <li><a href="#services">Rénovation salle de bain</a></li>
+          <li><a href="#services">Recherche de fuite</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <ul>
+          <li><a href="#zones">Zone d'intervention</a></li>
+          <li><a href="#tarifs">Tarifs indicatifs</a></li>
+          <li><a href="#contact">Contact & devis</a></li>
+          <li><a href="#mentions">Mentions légales</a></li>
+        </ul>
+        <div style="margin-top:1.25rem; font-size:.85rem;">
+          <strong style="color:var(--white);">Urgences 24h/24 :</strong><br/>
+          <a href="tel:0669247602" style="color:var(--accent); font-weight:700; font-size:1.05rem;">06 69 24 76 02</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Plomberie Garnier – Tous droits réservés</span>
+      <a href="#mentions">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Scroll to top ── -->
+<button id="scrollTop" aria-label="Retour en haut">↑</button>
+
+<script>
+  /* ── Mobile menu ── */
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('navLinks');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const spans = hamburger.querySelectorAll('span');
+    spans[0].style.transform = navLinks.classList.contains('open') ? 'rotate(45deg) translate(5px,5px)' : '';
+    spans[1].style.opacity   = navLinks.classList.contains('open') ? '0' : '1';
+    spans[2].style.transform = navLinks.classList.contains('open') ? 'rotate(-45deg) translate(5px,-5px)' : '';
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+    });
+  });
+
+  /* ── Scroll to top ── */
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+  });
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ── Active nav link on scroll ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navAnchors.forEach(a => {
+          a.style.color = a.getAttribute('href') === '#' + entry.target.id ? 'var(--blue)' : '';
+        });
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => observer.observe(s));
+
+  /* ── Contact form ── */
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const msg    = document.getElementById('form-message');
+    const nom    = document.getElementById('nom').value.trim();
+    const tel    = document.getElementById('tel').value.trim();
+    const ville  = document.getElementById('ville').value.trim();
+    const type   = document.getElementById('type').value;
+
+    if (!nom || !tel || !ville || !type) {
+      msg.textContent = '⚠️ Veuillez remplir tous les champs obligatoires (*).';
+      msg.className   = 'error';
+      msg.style.display = 'block';
+      return;
+    }
+
+    const telReg = /^(\+33|0)[1-9](\s?\d{2}){4}$/;
+    if (!telReg.test(tel.replace(/\s/g, ''))) {
+      msg.textContent = '⚠️ Numéro de téléphone invalide.';
+      msg.className   = 'error';
+      msg.style.display = 'block';
+      return;
+    }
+
+    /* Simule l'envoi (pas de backend dans cette démo statique) */
+    msg.textContent = '✅ Votre demande a bien été envoyée ! Nous vous rappellerons dans les plus brefs délais.';
+    msg.className   = 'success';
+    msg.style.display = 'block';
+    this.reset();
+
+    setTimeout(() => { msg.style.display = 'none'; }, 7000);
+  });
+</script>
+</body>
+</html>
